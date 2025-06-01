@@ -34,12 +34,15 @@ const PokemonPage = ({ previous, next }) => {
     (ability) => ability.is_hidden === true
   )
 
+  const previousUrl = previous ? `/pokemon/${previous.name}` : null
+  const nextUrl = next ? `/pokemon/${next.name}` : null
+
   return (
     <>
       <div className="links">
-        {previous && <Link to={`/pokemon/${previous.name}`}>Previous</Link>}
+        {previous && <a href={previousUrl}>Previous</a>}
         <Link to="/">Home</Link>
-        {next && <Link to={`/pokemon/${previous.name}`}>Next</Link>}
+        {next && <a href={nextUrl}>Next</a>}
       </div>
       <div className={`pokemon-page pokemon-type-${type.name}`}>
         <div
